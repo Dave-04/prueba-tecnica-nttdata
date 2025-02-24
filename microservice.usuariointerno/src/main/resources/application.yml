@@ -1,0 +1,23 @@
+server:
+  port: 8090
+logging:
+  level:
+    com.microservice.usuariointerno: DEBUG
+    org.springboot: DEBUG
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+spring:
+  application:
+    name: mscv-usuariointerno
+  datasource:
+    url: jdbc:postgresql://localhost:5432/banco
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
