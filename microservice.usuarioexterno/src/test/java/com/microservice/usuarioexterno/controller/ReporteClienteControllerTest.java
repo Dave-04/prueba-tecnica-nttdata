@@ -35,7 +35,7 @@ class ReporteClienteControllerTest {
     @Test
     void obtenerClientePorId() throws Exception {
         MvcResult mockMvcResult = mockMvc.perform(MockMvcRequestBuilders.get(BASE_URL)
-                        .queryParam()
+                        .queryParam("id",1)
                 .accept(MediaType.APPLICATION_JSON_VALUE)).andReturn();
         assertEquals(200,mockMvcResult.getResponse().getStatus());
     }

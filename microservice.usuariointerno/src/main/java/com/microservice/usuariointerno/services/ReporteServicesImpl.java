@@ -9,6 +9,7 @@ import com.microservice.usuariointerno.model.Movimiento;
 import com.microservice.usuariointerno.repository.CuentaRepository;
 import com.microservice.usuariointerno.repository.MovimientoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
@@ -17,6 +18,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class ReporteServicesImpl implements ReporteServices{
     @Autowired
     private MovimientoRepository movimientoRepository;

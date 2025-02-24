@@ -14,11 +14,14 @@ import java.util.List;
 @Repository
 public interface MovimientoRepository extends JpaRepository<Movimiento, Long> {
 
-    @Query("SELECT m FROM Movimiento m WHERE m.cuentaId = ?1 AND m.fecha BETWEEN ?2 AND ?3 ORDER BY m.movimientoId DESC")
+    //@Query("SELECT m FROM Movimiento m WHERE m.cuentaId = ?1 AND m.fecha BETWEEN ?2 AND ?3 ORDER BY m.movimientoId DESC")
 
     //List<Movimiento> obtenerMovimientosPorIdCuenta(Long id, LocalDate startDate, LocalDate endDate);
-    List<Movimiento> obtenerMovimientosPorIdCuenta(@Param("cuentaId") Long cuentaId,
-                                                   @Param("fechaInicio") LocalDate fechaInicio,
-                                                   @Param("fechaFin") LocalDate fechaFin);
+    @Query("SELECT m FROM Movimiento m WHERE m.cuenta.id = :cuentaId AND m.fecha BETWEEN :fechaInicio AND :fechaFin")
+    List<Movimiento> obtenerMovimientosPorIdCuenta(
+            @Param("cuentaId") Long cuentaId,
+            @Param("fechaInicio") LocalDate fechaInicio,
+            @Param("fechaFin") LocalDate fechaFin
+    );
 }
 
